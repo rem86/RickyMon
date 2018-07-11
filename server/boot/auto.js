@@ -27,7 +27,7 @@ module.exports = function (Message) {
           
                         gpu.properties.Lugar = fs.Lugar;
                         gpu.properties.NombrePC = fs.NombrePC;
-                        gpu.properties.IP = fs.IP;
+                        gpu.properties.IP = fs.LocalHash;
                         gpu.properties.HashTotalPC = body.hashrate.total[0];
           
                         var i = 0;
