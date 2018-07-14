@@ -47,6 +47,9 @@
     "Temp": {
       "type": "number",
       "default": 0
+    },
+    "Tstamp": {
+      "type": "date"
     }
 
   },

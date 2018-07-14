@@ -29,6 +29,7 @@ module.exports = function (Message) {
                         gpu.properties.NombrePC = fs.NombrePC;
                         gpu.properties.IP = fs.LocalHash;
                         gpu.properties.HashTotalPC = body.hashrate.total[0];
+                        gpu.properties.Tstamp = Date.now();
           
                         var i = 0;
                         var j = 0;
@@ -49,7 +50,7 @@ module.exports = function (Message) {
                           var gpuProp = gpu.properties;
                           gpuProp.Id = gpuProp.Lugar + '-' + gpuProp.NombrePC + '-' +gpuProp.Nro;
                           var request = require('request');
-                          request.put('http://localhost:3000/api/GPUs/', {
+                          request.put('http://localhost:3001/api/GPUs/', {
                             json: {
                               "Id": gpuProp.Id,
                               "Lugar": gpuProp.Lugar,
@@ -60,7 +61,8 @@ module.exports = function (Message) {
                               "HashGPU": gpuProp.HashGPU,
                               "HashNucleo1": gpuProp.HashNucleo1,
                               "HashNucleo2": gpuProp.HashNucleo2,
-                              "Temp": 0
+                              "Temp": 0,
+                              "Tstamp":gpuProp.Tstamp
                             }
                           }, function (error, response, body) {
           
